@@ -1,0 +1,18 @@
+.section {
+    /* background: #bdbdbd; */
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: max-content;
+}
+
+.gallery-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}

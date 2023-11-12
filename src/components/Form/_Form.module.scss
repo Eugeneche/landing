@@ -1,0 +1,123 @@
+.form {
+    width: 60%;
+    margin: auto;
+    box-sizing: content-box;
+
+    .fields {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        margin-bottom: 10px;
+        box-sizing: content-box;
+        width: 100%;
+
+        label {
+            margin-right: 10px;
+            text-transform: capitalize;
+            align-self: center;
+        }
+
+        input {
+            height: 30px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            outline: none;
+            background: transparent;
+            z-index: 0;
+            
+            &::placeholder {
+                font-family: 'Noto Sans', sans-serif;
+                position: relative;
+                bottom: 0;
+                transition: bottom ease 0.3s;
+            }
+
+            &:focus {
+                background: #ffffff;
+
+                &::placeholder {
+                    bottom: 12px;
+                    font-size: 10px;                   
+                }
+            }
+        }
+
+        .order {
+            display: none;
+        }
+
+        .order-number {
+            display: none;
+        }
+
+        textarea {
+            resize: vertical;
+            padding: 10px;
+            border: 1px solid grey;
+            outline: none;
+            border-radius: 5px;
+            background: transparent;
+
+            &::placeholder {
+                position: relative;
+                font-family: 'Noto Sans', sans-serif;
+                transition: bottom ease 0.3s;
+                bottom: 0;
+
+            }
+
+            &:focus {
+                background: #ffffff;
+
+                &::placeholder {
+                    bottom: 12px;
+                    font-size: 10px;                   
+                }
+            }
+        }
+    }
+
+    .submit {
+        text-align: right;
+
+        input[type="submit"] {
+            height: 50px;
+            padding: 0 20px;
+            border: 1px solid #1d1d1d;
+            text-transform: uppercase;
+            background: #ff8100;
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all ease .5s;
+
+            &:hover {
+                background: #fffcf5;
+                color: #ffda84;
+                border: 0.5px solid #332402;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    
+    .form  {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    .form  {
+        width: 90%;
+
+        .fields {
+            grid-template-columns: 100%;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+}

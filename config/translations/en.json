@@ -1,0 +1,40 @@
+{
+  "main_h1": "Plush Faux Suede Jacket",
+  "main_h2": "Chic and Cozy: Style and Warmth in One!",
+  
+  "home": "home",
+  "about_product": "description",
+  "contacts": "Contacts",
+
+  "seo_title": "Quality women's jackets",
+  "seo_description": "Quality women's jackets",
+
+  "prod_description": "This women's sheepskin jacket exudes timeless elegance and warmth. Crafted from high-quality genuine sheepskin, it features a plush shearling lining and a sleek leather exterior. The tailored silhouette and asymmetrical zipper add a touch of modern flair. Whether you're strolling through the city or heading to a countryside getaway, this jacket is the perfect blend of style and comfort.",
+  "prod_properties": "Available in three sizes: S, M, and L and two classic colors: black and brown.",
+  "order_online_payment": "Checkout with online payment",
+  "order_on_delivery": "Pay on delivery",
+
+  "gallery": "Gallery",
+  
+  "choose_color": "Select the color",
+  "choose_size": "Select the size",
+
+  "delivery_title": "Delivery",
+  "choose_point_h2": "Choose the most convenient pick-up point in the Zásilkovna service",
+  "choose_point_btn": "Choose a pick-up point",
+  "change_point_btn": "Change a pick-up point",
+
+  "your_name": "your name",
+  "your_message": "your message",
+  "your_email": "your email",
+  "your_phone": "your phone number (is not required)",
+  "send": "send",
+  "name": "Name",
+  "phone": "Phone",
+  "email": "Email",
+  "message": "Message",
+  "write_to_email": "Do you want to create a website or have any questions? Please write via the feedback form or email: ",
+
+  "four_o_four_title": "Sorry, but this page does not exist.",
+  "four_o_four_text": "We're sorry, but we can't find the page you're looking for."
+}

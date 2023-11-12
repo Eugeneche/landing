@@ -1,0 +1,15 @@
+.footer {
+    background: #474747;
+    min-height: 50px;
+    color: #ffffff;
+
+    .container {
+        display: flex;
+        height: 50px;
+        flex-wrap: wrap;
+        align-content: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+}

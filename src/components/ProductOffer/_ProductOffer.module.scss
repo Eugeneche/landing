@@ -1,0 +1,52 @@
+.section {
+    background: #bdbdbd;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: max-content;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 4%;
+    margin: 20px 0;
+}
+
+.product-description {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    letter-spacing: 1px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin:  0 auto;
+}
+
+.order-btn {
+    width: 100%;
+    padding: 10px;
+    display: block;
+    margin: 10px auto;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    background: #005a0f;
+    color: #dddddd;
+    border-radius: 5px;
+    transition: all ease .3s;
+    cursor: pointer;
+
+    &:hover {
+        background: #707070;
+        color: #bebebe;
+    }
+}

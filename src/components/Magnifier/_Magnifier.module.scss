@@ -1,0 +1,22 @@
+.img-magnifier-container {
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+}
+
+.magnifier-image {
+  width: 200px;
+  height: 200px;
+  border: 2px solid #fff;
+  z-index: 10;
+}
+
+@media (hover: none) {
+
+  .magnifier {
+    display: none;
+  }
+}
