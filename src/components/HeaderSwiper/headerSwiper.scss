@@ -1,0 +1,90 @@
+.dots {
+    top: 0 !important;
+}
+
+.dot {
+    fill: #e35400 !important;
+    height: 18px;
+    padding-bottom: 18px;
+}
+
+.dot[aria-selected="true"] {
+    border: 1px solid #e35400 !important;
+    border-radius: 50%;
+}
+
+/* .slide.prev-cloned .header-motto {
+    bottom: 50px;
+    color: #ff0000;
+    transition: color 2s, bottom 2s;
+}
+ */
+.header-slide {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    z-index: 1;
+}
+
+.header-motto {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    bottom: 0; 
+    /* color: #29292900; */
+    position: relative;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 600;
+    transition: color 0.5s, bottom 4s;
+}
+
+.slide.slide-current.slide-visible .header-motto {
+    bottom: 0;   
+    color: #292929;
+    transition: color 0.7s, bottom 0.4s;
+    
+}
+
+
+
+.slide .header-motto {
+    bottom: 50px;
+    color: #29292900;
+    transition: color 0.5s, bottom 4s;
+}
+
+
+
+/* .header-motto {
+    align-self: center;
+    bottom: 0; 
+    color: #29292900;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 600;
+    transition: color 0.5s, bottom 4s;
+}
+
+.slide.slide-current.slide-visible .header-motto {
+    bottom: 0;   
+    color: #292929;
+    transition: color 0.7s, bottom 0.4s;
+    
+}
+
+.slide .header-motto {
+    bottom: 50px;
+    color: #29292900;
+    transition: color 0.5s, bottom 4s;
+}
+
+.slide.prev-cloned .header-motto {
+    bottom: 50px;
+    color: #29292900;
+    transition: color 0.5s;
+} */

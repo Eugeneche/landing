@@ -30,6 +30,8 @@ query useTranslations {
   rawData: allFile(filter: {sourceInstanceName: {eq: "translations"}}) {
     nodes {
       childTranslationsJson {
+        motto_1
+        motto_2
         about_product
         contacts
         email

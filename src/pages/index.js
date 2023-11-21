@@ -4,10 +4,12 @@ import * as React from "react"
 import useTranslations from "../components/useTranslations"
 import Seo from "../components/seo"
 //import Zasilkovna from "../components/Zasilkovna/Zasilkovna"
-import Header from "../components/Header/Header"
+//import Header from "../components/Header/Header"
 import ProductOffer from "../components/ProductOffer/ProductOffer"
 import * as styles from "./pages.module.scss"
 import Gallery from "../components/Gallery/Gallery"
+import HeaderSwiper from "../components/HeaderSwiper/HeaderSwiper"
+import AboutProduct from "../components/AboutProduct/AboutProduct"
 
 
 
@@ -19,13 +21,14 @@ const IndexPage = () => {
   
   return (
     <>   
-      <Header />
+      <HeaderSwiper />
       <div className={styles.container}>
         <h1>{main_h1}</h1>
       </div>
 
-        <ProductOffer />
-        <Gallery />
+      <AboutProduct />
+      <ProductOffer />
+      <Gallery />
     </>
   )
 }
