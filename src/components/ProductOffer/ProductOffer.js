@@ -9,8 +9,8 @@ const ProductOffer = () => {
 
     const { 
         main_h2,
-        prod_description,
-        prod_properties,
+        CloudWalker,
+        CityPulse,
         order_online_payment,
         order_on_delivery
      } = useTranslations()
@@ -24,10 +24,10 @@ const ProductOffer = () => {
                     <StaticImage src="../../images/black.jpg" alt="black jacket" />
                 </div>
                 <p className={styles.productDescription}>
-                    {prod_description}
+                    {CloudWalker}
                 </p>
                 <p className={styles.productDescription}>
-                    {prod_properties}
+                    {CityPulse}
                 </p>
                 <div className={styles.buttons}>
                     <LocalizedLink to="/order">

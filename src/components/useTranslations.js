@@ -45,8 +45,10 @@ query useTranslations {
         message
         name
         phone
-        prod_description
-        prod_properties
+        StealthStride
+        ArcticAura
+        CityPulse
+        CloudWalker
         order_online_payment
         order_on_delivery
         choose_color

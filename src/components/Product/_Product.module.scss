@@ -1,5 +1,5 @@
 .section {
-    /* background: #bdbdbd; */
+    background: #3fc9ff;
     padding: 30px;
     margin: 20px 0;
 }
@@ -23,4 +23,13 @@
         object-fit: cover;
     }
 
+}
+
+.photos-slider {
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    img {
+        width: 100%;
+    }
 }

@@ -79,6 +79,13 @@ h4 {
   color: #383838;
 }
 
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 html, body {
