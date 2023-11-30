@@ -12,7 +12,37 @@
 
 .product-info-block {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 56% 40%;
+    gap: 4%;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-title {
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.product-sizes {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    margin-bottom: 20px;
+
+/*     .size {
+        border: 1px solid grey;
+        padding: 5px 10px;
+        margin-right: 5px;
+    } */
 }
 
 .product-image {
