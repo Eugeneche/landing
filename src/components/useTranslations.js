@@ -49,6 +49,7 @@ query useTranslations {
         ArcticAura
         CityPulse
         CloudWalker
+        sizing
         order_online_payment
         order_on_delivery
         choose_color

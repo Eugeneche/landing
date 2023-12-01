@@ -10,6 +10,7 @@ import * as styles from "./pages.module.scss"
 import Gallery from "../components/Gallery/Gallery"
 import HeaderSwiper from "../components/HeaderSwiper/HeaderSwiper"
 import Product from "../components/Product/Product"
+import Image from "../components/Image/Image"
 
 
 
@@ -25,6 +26,7 @@ const IndexPage = () => {
       <div className={styles.container}>
         <h1>{main_h1}</h1>
       </div>
+      <Image />
       <Product />
 
       <ProductOffer />

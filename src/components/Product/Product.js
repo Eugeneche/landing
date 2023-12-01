@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { LocaleContext } from "../layout"
+import LocalizedLink from "../localizedLink"
+import useTranslations from "../useTranslations"
 import * as styles from "./_Product.module.scss"
 import "./Product.scss"
-//import { sizes } from "gatsby-plugin-sharp"
 
 const Product = () => {
 
@@ -30,6 +31,15 @@ const Product = () => {
     }
     `)
 
+    const { 
+      main_h2,
+      CloudWalker,
+      CityPulse,
+      sizing,
+      order_online_payment,
+      order_on_delivery
+   } = useTranslations()
+
     const allProducts = data.allStripePrice.nodes
 
     const uniqueProducts = allProducts.filter((product, i, self) => {
@@ -42,12 +52,8 @@ const Product = () => {
     const [ sizesRange, setSizesRange ] = useState([])
     const [ size, setSize ] = useState(sizesRange[0])
     const [ index, setIndex ] = useState(0)
-    //const [price, setPrice] = useState(false)
-console.log(product)
-//console.log(index)
+
     const { locale } = React.useContext(LocaleContext)
-
-
 
     const renewSizesRange = () => {
 
@@ -57,21 +63,18 @@ console.log(product)
       allProducts.forEach(prod => {
         if (prod.product.metadata.name === product.product.metadata.name &&
           prod.product.metadata.color === product.product.metadata.color) {
-            arr.push(prod.nickname)
-            arr.sort((a, b) => a - b)
+            arr.push(prod)
+            arr.sort((a, b) => a.nickname - b.nickname)
           }     
       })
       setSizesRange(arr)
       setSize(arr[0])
+      setIndex(0)
     }
 
-    const getSize = (e, i) => {
-      e.target.getAttribute('id') === size ? 
-        e.target.setAttribute("class", "active") : 
-        e.target.setAttribute("class", "regular")
-
+    const getSize = (i, obj) => {
       setIndex(i)
-      setSize(e.target.getAttribute('id'))
+      setSize(obj)
     }
 
     const setCurrentProduct = (e) => {
@@ -82,62 +85,58 @@ console.log(product)
       renewSizesRange()
     }, [product.product.metadata.color, product.product.metadata.name])
 
-/*     useEffect(() => {
-      setSize(size)
-    }) */
-
-/*     const regular = {
-      border: "1px solid grey",
-      padding: "5px 10px",
-      marginRight: "5px",
-      background: "none"
-    }
-
- */
-    const active = {
-      background: "green"
-    }
-
     return (
         <section className={styles.section}>
             <div className={styles.container}>
+
                 <h2>About Product</h2>
+
                 <div className={styles.productInfoBlock}>
                     <div className={styles.productInfo}>
                         <h3 className={styles.productTitle}>{product.product.metadata.name}</h3>
                         <p>{product.product.metadata[locale]}</p>
-                        <p className={styles.productPrice}>{`$${(product.unit_amount / 100).toFixed(2)}`}</p>
+                        <p className={styles.productPrice}>{`$${(size?.unit_amount / 100).toFixed(2)}`}</p>
+
                         <div className={styles.productSizes}>
                           {sizesRange.map((size, idx) => {
                             return (
                               <button 
-                                id={size}
-                                onClick={(e) => getSize(e, idx)}
-                                key={size} 
+                                id={size?.nickname}
+                                onClick={(e) => getSize(idx, size)}
+                                key={size?.nickname} 
                                 className={idx === index ? "active" : "regular"}
-                                /* style={} */
-                                /* className="regular" */
                               >
-                                  {size}
+                                  {size?.nickname}
                               </button>
                             )
                           })}
                         </div>
                     </div>
+
                     <div className={styles.productImage}>
-                        <img src={product.product.images} alt="sneakers"></img>
+                      <img src={product.product.images} alt="sneakers"></img>
+                      <div className={styles.buttons}>
+                        <div className={styles.size}>{`${sizing}: ${size?.nickname}`}</div>
+                        <LocalizedLink to="/order">
+                          <button className={styles.orderBtn}>{order_online_payment}</button>
+                        </LocalizedLink>
+                        <div className={styles.price}>{`$${(size?.unit_amount / 100).toFixed(2)}`}</div>
+                        <LocalizedLink to="/delivery">
+                          <button className={styles.orderBtn}>{order_on_delivery}</button>
+                        </LocalizedLink>
+                      </div>
                     </div>
+
                 </div>
                 <div className={styles.photosSlider} >
                     {uniqueProducts.map((product, i) => {
                         return (
-                            <div 
-                              key={product.product.id} 
-                              
+                            <button 
+                              key={product.product.id}                              
                               onClick={(e) => setCurrentProduct(e)}
                             >
                               <img id={i} src={product.product.images} alt="sneakers"></img>
-                            </div>
+                            </button>
                         )
                     })}
                 </div>
