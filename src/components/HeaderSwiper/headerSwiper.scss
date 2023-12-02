@@ -1,4 +1,4 @@
-.dots {
+/* .dots {
     top: 0 !important;
 }
 
@@ -11,7 +11,7 @@
 .dot[aria-selected="true"] {
     border: 1px solid #e35400 !important;
     border-radius: 50%;
-}
+} */
 
 /* .slide.prev-cloned .header-motto {
     bottom: 50px;
@@ -26,6 +26,8 @@
     padding: 0 20px;
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-template-rows: 500px;
+    align-items: center;
     z-index: 1;
 }
 

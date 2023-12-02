@@ -1,13 +1,13 @@
-.slide {
+/* .slide {
     position: relative;
     max-width: 1200px;
+    max-height: 500px;
     margin: auto;
     padding: 0 20px;
     display: grid;
     grid-template-columns: 50% 50%;
-    /* gap: 2%; */
     z-index: 1;
-}
+} */
 
 /* .header-motto, .header-pizza-name {
     font-family: 'Oswald', sans-serif;
@@ -21,7 +21,7 @@
 
 /* mobile */
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
     
     .header-motto, .header-pizza-name {
         font-size: 4vw;
@@ -62,4 +62,4 @@
         z-index: 2;
         text-align: right;
     }
-}
+} */

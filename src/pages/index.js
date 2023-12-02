@@ -1,11 +1,11 @@
 import * as React from "react"
 //import { Link } from "gatsby"
 //import { StaticImage } from "gatsby-plugin-image"
-import useTranslations from "../components/useTranslations"
+//import useTranslations from "../components/useTranslations"
 import Seo from "../components/seo"
 //import Zasilkovna from "../components/Zasilkovna/Zasilkovna"
 //import Header from "../components/Header/Header"
-import ProductOffer from "../components/ProductOffer/ProductOffer"
+//import ProductOffer from "../components/ProductOffer/ProductOffer"
 import * as styles from "./pages.module.scss"
 import Gallery from "../components/Gallery/Gallery"
 import HeaderSwiper from "../components/HeaderSwiper/HeaderSwiper"
@@ -16,20 +16,20 @@ import Image from "../components/Image/Image"
 
 const IndexPage = () => {
 
-  const {
+/*   const {
     main_h1
-  } = useTranslations()
+  } = useTranslations() */
   
   return (
     <>   
       <HeaderSwiper />
       <div className={styles.container}>
-        <h1>{main_h1}</h1>
+        {/* <h1>{main_h1}</h1> */}
       </div>
       <Image />
       <Product />
 
-      <ProductOffer />
+      {/* <ProductOffer /> */}
       <Gallery />
     </>
   )

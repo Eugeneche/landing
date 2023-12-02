@@ -19,7 +19,7 @@ const HeaderSwiper = () => {
             autoplayInterval={4000}
             wrapAround={true}
             animation='fade'
-            speed={2000}
+            speed={1000}
             pauseOnHover={false}
             withoutControls={true}
             afterSlide={() => {}}
@@ -33,22 +33,22 @@ const HeaderSwiper = () => {
             <div /* className={styles.slide} */ className="header-slide">
                 <div className="header-motto">{motto_1}</div>
                 <StaticImage 
-                    className={styles.headerProductImage}
+                    style={{height: "fit-content"}}
+                    imgStyle={{height: "auto"}}
                     src="../../images/header_white_2.jpg"
                     alt="sneakers"
                 />
-                {/* <div className={styles.headerPizzaName}>Sneakers White</div> */}
             </div>
 
-            <div /* className={styles.slide} */ className="header-slide">               
+            <div className="header-slide">               
                 <StaticImage 
-                    className={styles.headerProductImage}
+                    style={{height: "fit-content"}}
+                    imgStyle={{height: "auto"}}
                     src="../../images/header_black.jpg"
                     alt="sneakers"
                 />
                 <div className="header-motto">{motto_2}</div>
-                {/* <div className={styles.headerPizzaName}>Sneakers Black</div> */}
-            </div>
+            </div> 
 
 
                     

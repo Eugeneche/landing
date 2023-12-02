@@ -11,7 +11,7 @@ const Image = () => {
                 src="../../images/jogging.jpg"
                 alt="jogging"
                 style={{
-                    height: "800px",
+                    maxHeight: "600px",
                     width: "100%"
                 }}
             />
