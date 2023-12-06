@@ -3,6 +3,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import { LocaleContext } from "../layout"
 import LocalizedLink from "../localizedLink"
 import useTranslations from "../useTranslations"
+import { useShoppingCart } from 'use-shopping-cart'
+import { loadStripe } from "@stripe/stripe-js"
 import * as styles from "./_Product.module.scss"
 import "./Product.scss"
 
@@ -26,19 +28,28 @@ const Product = () => {
           }
           unit_amount
           nickname
+          lookup_key
         }
       }
     }
     `)
 
     const { 
-      main_h2,
+/*       main_h2,
       CloudWalker,
-      CityPulse,
+      CityPulse, */
       sizing,
       order_online_payment,
       order_on_delivery
    } = useTranslations()
+
+   const {
+    /* formattedTotalPrice, */
+    /* redirectToCheckout, */
+    /* addItem, */
+    /* cartCount, */
+    /* clearCart, */
+  } = useShoppingCart()
 
     const allProducts = data.allStripePrice.nodes
 
@@ -85,6 +96,25 @@ const Product = () => {
       renewSizesRange()
     }, [product.product.metadata.color, product.product.metadata.name])
 
+    const handleSubmit = async event => {
+      event.preventDefault()
+  
+      const price = size?.lookup_key
+      const stripe = await loadStripe('pk_test_51O4scKFMr3lmpXgFMWy8l78D41LYkgIW3ArVdJ5jaSkI8K0nnarUXNU81QPoYQ3QXPFvulI8DD3DjutBxxt6PluF00xTf8GqeV')
+      
+      const { error } = await stripe.redirectToCheckout({
+        mode: "payment",
+        lineItems: [{ price, quantity: 1 }],
+        successUrl: `${window.location.origin}/delivery`,
+        cancelUrl: `${window.location.origin}/contacts`,
+      })
+  
+      if (error) {
+        console.warn("Error:", error)
+        //setLoading(false)
+      }
+    }
+    //console.log(size.product)
     return (
         <section className={styles.section}>
             <div className={styles.container}>
@@ -117,9 +147,15 @@ const Product = () => {
                       <img src={product.product.images} alt="sneakers"></img>
                       <div className={styles.buttons}>
                         <div className={styles.size}>{`${sizing}: ${size?.nickname}`}</div>
-                        <LocalizedLink to="/order">
-                          <button className={styles.orderBtn}>{order_online_payment}</button>
-                        </LocalizedLink>
+                        {/* <LocalizedLink to="/order">
+                          <button 
+                            onClick={() => handleSubmit}
+                            className={styles.orderBtn}>{order_online_payment}</button>
+                        </LocalizedLink> */}
+                        <button 
+                          className={styles.orderBtn}
+                          onClick={(e) => handleSubmit(e)}
+                        >{order_online_payment}</button>
                         <div className={styles.price}>{`$${(size?.unit_amount / 100).toFixed(2)}`}</div>
                         <LocalizedLink to="/delivery">
                           <button className={styles.orderBtn}>{order_on_delivery}</button>

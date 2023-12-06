@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 //import getStripe from "../utils/stripejs"
 import { loadStripe } from "@stripe/stripe-js"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
-import useTranslations from "../components/useTranslations"
+//import { CartProvider } from "use-shopping-cart"
+//import useTranslations from "../components/useTranslations"
 import * as styles from "./pages.module.scss"
 
 const OrderPage = ({data}) => {
   
-  const { 
+/*   const { 
     choose_color,
     choose_size
-  } = useTranslations()
+  } = useTranslations() */
 
-  const [ color, setColor ] = useState('brown')
-  const [ size, setSize ] = useState('l')
-  const [ currentProduct, setCurrentProduct] = useState({})
+  //const [ color, setColor ] = useState('brown')
+  //const [ size, setSize ] = useState('l')
+  //const [ currentProduct, setCurrentProduct] = useState({})
 
   const allProducts = data.allStripePrice.nodes
 
-  useEffect(() => {
-    allProducts.forEach(({product}) => {
-      (product.metadata.size === size && product.metadata.color === color) && setCurrentProduct(product)
-    })
-  })
-  /* ------------------------ */
-  //const [loading, setLoading] = useState(false)
-
   const handleSubmit = async event => {
     event.preventDefault()
-    //setLoading(true)
 
-    //const price = new FormData(event.target).get("priceSelect")
-    const price = currentProduct?.default_price
+    const price = "price_1OGNBAFMr3lmpXgFjlAK3pt1"
     const stripe = await loadStripe('pk_test_51O4scKFMr3lmpXgFMWy8l78D41LYkgIW3ArVdJ5jaSkI8K0nnarUXNU81QPoYQ3QXPFvulI8DD3DjutBxxt6PluF00xTf8GqeV')
     
     const { error } = await stripe.redirectToCheckout({
@@ -55,36 +46,11 @@ const OrderPage = ({data}) => {
 
         <div className={styles.chooseProduct}>
 
-          <div>
-            <img className={styles.productImage} src={currentProduct.images} alt={currentProduct.name}></img>
-          </div>
 
           <div className={styles.control}>
-            <h3>{currentProduct.name}</h3>
-            <label>
-              {choose_color}:
-              <select
-                value={color} 
-                onChange={e => setColor(e.target.value)} 
-              >
-                <option value="black">černá / black</option>
-                <option value="brown">hnědá / brown</option>
-              </select>
-            </label>
 
-            <label>
-              {choose_size}:
-              <select
-                value={size}
-                onChange={e => setSize(e.target.value)}
-              >
-                <option value="s">S</option>
-                <option value="m">M</option>
-                <option value="l">L</option>
-              </select>
-            </label>
 
-            <h4>{currentProduct?.metadata?.price} CZK</h4>
+
 
             <button className={styles.paymentBtn} onClick={(event) => handleSubmit(event)}>Pay</button>
 
@@ -129,7 +95,6 @@ query getProducts {
         default_price
       }
       unit_amount
-      currency
     }
   }
 }
