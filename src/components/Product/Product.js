@@ -98,10 +98,6 @@ const Product = () => {
       renewSizesRange()
     }, [product.product.metadata.color, product.product.metadata.name])
 
-    if (!isBrowser) {
-      return
-    }
-
     const handleSubmit = async event => {
       event.preventDefault()
 
@@ -111,8 +107,8 @@ const Product = () => {
       const { error } = await stripe.redirectToCheckout({
         mode: "payment",
         lineItems: [{ price, quantity: 1 }],
-        successUrl: `${window.location.origin}/delivery`,
-        cancelUrl: `${window.location.origin}/contacts`,
+        successUrl: `/delivery`,
+        cancelUrl: `/contacts`,
       })
   
       if (error) {
