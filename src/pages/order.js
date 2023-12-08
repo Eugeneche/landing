@@ -18,7 +18,7 @@ const OrderPage = ({data}) => {
   //const [ size, setSize ] = useState('l')
   //const [ currentProduct, setCurrentProduct] = useState({})
 
-  const allProducts = data.allStripePrice.nodes
+  /* const allProducts = data.allStripePrice.nodes
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -37,7 +37,7 @@ const OrderPage = ({data}) => {
       console.warn("Error:", error)
       //setLoading(false)
     }
-  }
+  } */
 
   return (
     <>
@@ -52,7 +52,7 @@ const OrderPage = ({data}) => {
 
 
 
-            <button className={styles.paymentBtn} onClick={(event) => handleSubmit(event)}>Pay</button>
+            <button className={styles.paymentBtn} /* onClick={(event) => handleSubmit(event)} */>Pay</button>
 
             <p>To make the test payment use the following card number:</p>
             <p>4242 4242 4242 4242</p>

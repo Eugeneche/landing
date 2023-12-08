@@ -107,8 +107,8 @@ const Product = () => {
       const { error } = await stripe.redirectToCheckout({
         mode: "payment",
         lineItems: [{ price, quantity: 1 }],
-        successUrl: `/delivery`,
-        cancelUrl: `/contacts`,
+        successUrl: `${window.location.origin}/delivery`,
+        cancelUrl: `${window.location.origin}/contacts`,
       })
   
       if (error) {
