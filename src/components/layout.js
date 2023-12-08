@@ -18,7 +18,7 @@ const Layout = ({ children, pageContext: { locale } }) => {
   return (
   <LocaleContext.Provider value={{ locale }}>
     <div className="global-wrapper">
-      <CartProvider
+      
       
         <MainMenu locale={locale} />
         <MDXProvider components={{ a: MdxLink }}>
