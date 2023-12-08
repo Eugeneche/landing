@@ -98,13 +98,13 @@ const Product = () => {
       renewSizesRange()
     }, [product.product.metadata.color, product.product.metadata.name])
 
+    if (!isBrowser) {
+      return
+    }
+
     const handleSubmit = async event => {
       event.preventDefault()
 
-      if (!isBrowser) {
-        return
-      }
-  
       const price = size?.lookup_key
       const stripe = await loadStripe('pk_test_51O4scKFMr3lmpXgFMWy8l78D41LYkgIW3ArVdJ5jaSkI8K0nnarUXNU81QPoYQ3QXPFvulI8DD3DjutBxxt6PluF00xTf8GqeV')
       
