@@ -12,9 +12,6 @@ module.exports = {
     author: `@gatsbyjs`,
     siteUrl: `https://e-commerce-delivery-payment.netlify.app/`,
   },
-  flags: {
-    DEV_SSR: true
-  },
   plugins: [
     `gatsby-plugin-mdx`,
     `gatsby-plugin-image`,

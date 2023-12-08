@@ -8,6 +8,8 @@ import { loadStripe } from "@stripe/stripe-js"
 import * as styles from "./_Product.module.scss"
 import "./Product.scss"
 
+const isBrowser = typeof window !== "undefined"
+
 const Product = () => {
 
     const data = useStaticQuery(graphql`
@@ -98,6 +100,10 @@ const Product = () => {
 
     const handleSubmit = async event => {
       event.preventDefault()
+
+      if (!isBrowser) {
+        return
+      }
   
       const price = size?.lookup_key
       const stripe = await loadStripe('pk_test_51O4scKFMr3lmpXgFMWy8l78D41LYkgIW3ArVdJ5jaSkI8K0nnarUXNU81QPoYQ3QXPFvulI8DD3DjutBxxt6PluF00xTf8GqeV')
