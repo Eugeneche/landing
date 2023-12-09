@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { LocaleContext } from "../layout"
 import LocalizedLink from "../localizedLink"
 import useTranslations from "../useTranslations"
-import { useShoppingCart } from 'use-shopping-cart'
+//import { useShoppingCart } from 'use-shopping-cart'
 import { loadStripe } from "@stripe/stripe-js"
 import * as styles from "./_Product.module.scss"
 import "./Product.scss"
@@ -45,13 +45,13 @@ const Product = () => {
       order_on_delivery
    } = useTranslations()
 
-   const {
+   /* const { */
     /* formattedTotalPrice, */
     /* redirectToCheckout, */
     /* addItem, */
     /* cartCount, */
     /* clearCart, */
-  } = useShoppingCart()
+  /* } = useShoppingCart() */
 
     const allProducts = data.allStripePrice.nodes
 
@@ -107,8 +107,8 @@ const Product = () => {
       const { error } = await stripe.redirectToCheckout({
         mode: "payment",
         lineItems: [{ price, quantity: 1 }],
-        successUrl: `/delivery`,
-        cancelUrl: `/contacts`,
+        successUrl: `${window.location.origin}/delivery`,
+        cancelUrl: `${window.location.origin}/contacts`,
       })
   
       if (error) {
