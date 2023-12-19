@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react"
 import useTranslations from "../useTranslations"
 import * as styles from "./_Zasilkovna.module.scss"
+import "./Zasilkovna.scss"
 import Form from "../Form/Form"
 import packeta_logo from "../../images/packeta_logo.png"
-import packeta_widget from "../../images/packeta_widget.jpg"
+//import packeta_widget from "../../images/packeta_widget.jpg"
 
 const Zasilkovna = () => {
 
     const { 
-        choose_point_h2,
+        choose_point_text,
         choose_point_btn,
         change_point_btn
         
@@ -50,22 +51,20 @@ const Zasilkovna = () => {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
-                <h3>{choose_point_h2}</h3>
+                <h3 style={point ? {display: "none"} : {display: "block"}}>{choose_point_text}<img className={styles.deliveryLogo} src={packeta_logo} alt="packeta logo"></img></h3>
 
-                <img style={point ? {display: "none"} : {display: "block"}} className={styles.deliveryLogo} src={packeta_logo} alt="packeta logo"></img>
+                {/* <img style={point ? {display: "none"} : {display: "block"}} className={styles.deliveryLogo} src={packeta_logo} alt="packeta logo"></img> */}
 
-                <img style={point ? {display: "none"} : {display: "block"}} className={styles.deliveryWidget} src={packeta_widget} alt="packeta widget"></img>
+                {/* <img style={point ? {display: "none"} : {display: "block"}} className={styles.deliveryWidget} src={packeta_widget} alt="packeta widget"></img> */}
             
                 {point ?          
                     <button 
                         className="packeta-selector-open" 
-                        style={{display: "block", margin: "20px auto", fontFamily: "'Lato', sans-serif", textTransform: "uppercase"}}
                         onClick={() => {Packeta.Widget.pick(packetaApiKey, showSelectedPickupPoint, packetaOptions)}}>{change_point_btn}
                     </button>                  
                     :
                     <button 
                         className="packeta-selector-open" 
-                        style={{display: "block", margin: "20px auto", fontFamily: "'Lato', sans-serif", textTransform: "uppercase"}}
                         onClick={() => {Packeta.Widget.pick(packetaApiKey, showSelectedPickupPoint, packetaOptions)}}>{choose_point_btn}
                     </button> 
                 }  

@@ -55,7 +55,7 @@ query useTranslations {
         choose_color
         choose_size
         delivery_title
-        choose_point_h2
+        choose_point_text
         choose_point_btn
         change_point_btn
         send

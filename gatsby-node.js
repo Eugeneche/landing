@@ -1,8 +1,5 @@
-const path = require(`path`)
 const locales = require(`./config/i18n`)
 const {
-  localizedSlug,
-  findKey,
   removeTrailingSlash,
 } = require(`./src/utils/gatsby-node-helpers`)
 

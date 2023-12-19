@@ -37,9 +37,7 @@ const Product = () => {
     `)
 
     const { 
-/*       main_h2,
-      CloudWalker,
-      CityPulse, */
+      main_h2,
       sizing,
       order_online_payment,
       order_on_delivery
@@ -65,6 +63,7 @@ const Product = () => {
     const [ sizesRange, setSizesRange ] = useState([])
     const [ size, setSize ] = useState(sizesRange[0])
     const [ index, setIndex ] = useState(0)
+    const [ sliderIndex, setSliderIndex ] = useState(0)
 
     const { locale } = React.useContext(LocaleContext)
 
@@ -90,8 +89,9 @@ const Product = () => {
       setSize(obj)
     }
 
-    const setCurrentProduct = (e) => {
+    const setCurrentProduct = (e, idx) => {
       setProduct(uniqueProducts[e.target.id])
+      setSliderIndex(idx)
     }
 
     useEffect(() => {
@@ -121,13 +121,20 @@ const Product = () => {
         <section className={styles.section}>
             <div className={styles.container}>
 
-                <h2>About Product</h2>
+                <h2>{main_h2}</h2>
 
                 <div className={styles.productInfoBlock}>
                     <div className={styles.productInfo}>
                         <h3 className={styles.productTitle}>{product.product.metadata.name}</h3>
-                        <p>{product.product.metadata[locale]}</p>
-                        <p className={styles.productPrice}>{`$${(size?.unit_amount / 100).toFixed(2)}`}</p>
+                        <p className={styles.productDescription}>{product.product.metadata[locale]}</p>
+                        <p className={styles.productPrice}>{size ? `$${(size?.unit_amount / 100).toFixed(2)}` : ``}</p>
+
+                        <div className={styles.testNotification}>
+                          <p>You can make a test payment with the following requisites:</p>
+                          <p>Test card number: 4242 4242 4242 4242</p>
+                          <p>Card expiration date: any future date</p>
+                          <p>CVV: any 3 numbers</p>
+                        </div>
 
                         <div className={styles.productSizes}>
                           {sizesRange.map((size, idx) => {
@@ -149,16 +156,11 @@ const Product = () => {
                       <img src={product.product.images} alt="sneakers"></img>
                       <div className={styles.buttons}>
                         <div className={styles.size}>{`${sizing}: ${size?.nickname}`}</div>
-                        {/* <LocalizedLink to="/order">
-                          <button 
-                            onClick={() => handleSubmit}
-                            className={styles.orderBtn}>{order_online_payment}</button>
-                        </LocalizedLink> */}
                         <button 
                           className={styles.orderBtn}
                           onClick={(e) => handleSubmit(e)}
                         >{order_online_payment}</button>
-                        <div className={styles.price}>{`$${(size?.unit_amount / 100).toFixed(2)}`}</div>
+                        <div className={styles.price}>{size ? `$${(size?.unit_amount / 100).toFixed(2)}` : ``}</div>
                         <LocalizedLink to="/delivery">
                           <button className={styles.orderBtn}>{order_on_delivery}</button>
                         </LocalizedLink>
@@ -171,7 +173,8 @@ const Product = () => {
                         return (
                             <button 
                               key={product.product.id}                              
-                              onClick={(e) => setCurrentProduct(e)}
+                              onClick={(e) => setCurrentProduct(e, i)}
+                              className={i === sliderIndex ? "slide-active" : "slide-regular"}
                             >
                               <img id={i} src={product.product.images} alt="sneakers"></img>
                             </button>

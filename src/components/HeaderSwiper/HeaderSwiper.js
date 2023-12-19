@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import useTranslations from "../useTranslations"
-import * as styles from "./_HeaderSwiper.module.scss"
+//import * as styles from "./_HeaderSwiper.module.scss"
 import "./headerSwiper.scss"
 import Carousel from "nuka-carousel"
 
@@ -15,6 +15,7 @@ const HeaderSwiper = () => {
 
     return (
         <Carousel 
+            carouselId="header"
             autoplay={true}
             autoplayInterval={4000}
             wrapAround={true}
@@ -31,7 +32,12 @@ const HeaderSwiper = () => {
             }} */
         >
             <div /* className={styles.slide} */ className="header-slide">
-                <div className="header-motto">{motto_1}</div>
+                <div className="header-info">
+                    <div className="header-logo">urbankicks</div>
+                    <div className="header-model">arctic aura</div>
+                    <div className="header-motto">{motto_1}</div>
+                </div>
+                
                 <StaticImage 
                     style={{height: "fit-content"}}
                     imgStyle={{height: "auto"}}
@@ -47,8 +53,12 @@ const HeaderSwiper = () => {
                     src="../../images/header_black.jpg"
                     alt="sneakers"
                 />
-                <div className="header-motto">{motto_2}</div>
-            </div> 
+                <div className="header-info">
+                    <div className="header-logo-right">urbankicks</div>
+                    <div className="header-model-right">city pulse</div>
+                    <div className="header-motto-right">{motto_2}</div>
+                </div>
+            </div>
 
 
                     

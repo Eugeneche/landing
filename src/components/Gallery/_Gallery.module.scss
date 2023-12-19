@@ -16,3 +16,14 @@
     gap: 10px;
     margin: 20px 0;
 }
+
+@media screen and (max-width: 430px) {
+
+    .section {
+        padding: 4vw;
+    }
+    
+    .gallery-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}

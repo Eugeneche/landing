@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 //import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import useTranslations from "../useTranslations"
 import * as styles from "./_Gallery.module.scss"
-import Magnifier from "../Magnifier/Magnifier"
+import MagnifierMovable from "../MagnifierMovable/MagnifierMovable"
 
 //import i from "../../images/gallery/1.jpg"
 
@@ -38,7 +38,7 @@ const Gallery = () => {
                     {images.map(img => {
                         return (
                             
-                            <Magnifier key={img.childImageSharp.id} image={img.childImageSharp.gatsbyImageData.images.fallback.src} />                               
+                            <MagnifierMovable key={img.childImageSharp.id} image={img.childImageSharp.gatsbyImageData.images.fallback.src} />                               
                             
                         )
                     })}

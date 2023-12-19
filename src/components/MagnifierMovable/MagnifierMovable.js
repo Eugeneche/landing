@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import * as styles from "./_Magnifier.module.scss"
+import * as styles from "./_MagnifierMovable.module.scss"
 
-const Magnifier = ({ image }) => {
+const MagnifierMovable = ({ image }) => {
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [showMagnifier, setShowMagnifier] = useState(false)
@@ -63,4 +63,4 @@ const Magnifier = ({ image }) => {
 
 }
 
-export default Magnifier
+export default MagnifierMovable

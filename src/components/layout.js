@@ -1,6 +1,5 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-//import { CartProvider } from "use-shopping-cart"
 import MainMenu from "./MainMenu/MainMenu"
 import Footer from "../components/Footer/Footer"
 import MdxLink from "./mdxLink"
